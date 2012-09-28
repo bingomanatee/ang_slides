@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nuby-Express Slides</title>
+<head>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.currency.js"></script>
+    <script src="js/angular-1.0.2/angular.min.js"></script>
+    <script src="js/underscore/underscore-min.js"></script>
+    <script src="js/random_transactions.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="slides.css">
+    <link href='http://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700|Archivo+Narrow:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-app="slides">
+<div ng-controller="SlideCtrl">
+    <header>
+        <div class="nav navbar-inverse navbar-fixed-top">
+            <h1>Nuby-Express Slides</h1>
+            <a nav-item ng-click="go(-1)">Back</a>
+            <a nav-item ng-click="go('home')">[home]</a>
+            <a ng-click="go(1)">Next</a>
+
+        </div>
+    </header>
+    <div class="row-fluid">
+        <div class="span10">
+            <article id="content" ng-bind-html-unsafe="slide().content">
+
+            </article>
+        </div>
+        <div class="span2">
+            <div>
+
+                <ul class="nav nav-list">
+                    <li class="nav-header">Slides</li>
+                        <li ng-repeat="nav_slide in slides" ng-class="nav_slide.nav_class"><a ng-click="load_slide(nav_slide)" href="#">{{nav_slide.label}}</a>
+                        </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--[if gte IE 9]>
+<style type="text/css">
+    .gradient {
+        filter: none;
+    }
+</style>
+<![endif]-->
+</body>
+</html>
